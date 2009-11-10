@@ -3,11 +3,11 @@ namespace MarsRovers.Core
     public interface IPlateau
     {
         int GetSize();
-        Position GetPosition(int x, int y);
-        Position GetPositionNorthOf(Position position);
-        Position GetPositionEastOf(Position position);
-        Position GetPositionSouthOf(Position position);
-        Position GetPositionWestOf(Position position);
+        Coordinate GetPosition(int x, int y);
+        bool IsInNorthBoundary(Coordinate coordinate);
+        bool IsInSouthBoundary(Coordinate coordinate);
+        bool IsInEastBoundary(Coordinate coordinate);
+        bool IsInWestBoundary(Coordinate coordinate);
 
     }
 }

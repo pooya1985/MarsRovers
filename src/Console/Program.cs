@@ -11,7 +11,7 @@ namespace MarsRovers.Console
     /* This Console Project is just an example of usage of the MarsRover.Core api */
     class Program
     {
-        private const string INSTRUCTIONS = "Insert the Rovers Commands (To execute use RUN command):";
+        private const string INSTRUCTIONS = "Insert the Rovers Navigation Commands (To execute use RUN command):";
         private static StringBuilder commands;
         private static StringBuilder output;
         static void Main(string[] args)

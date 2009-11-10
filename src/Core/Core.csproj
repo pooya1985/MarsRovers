@@ -45,14 +45,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\Direction.cs" />
+    <Compile Include="Domain\HeadingEast.cs" />
+    <Compile Include="Domain\HeadingNorth.cs" />
+    <Compile Include="Domain\HeadingSouth.cs" />
+    <Compile Include="Domain\HeadingWest.cs" />
+    <Compile Include="Domain\IHeading.cs" />
     <Compile Include="Domain\IPlateau.cs" />
+    <Compile Include="Domain\IRover.cs" />
+    <Compile Include="Domain\Position.cs" />
+    <Compile Include="Infrastructure\HeadingRepository.cs" />
+    <Compile Include="Infrastructure\NavigationCommandRepository.cs" />
+    <Compile Include="Infrastructure\RoversRepository.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
-    <Compile Include="RoversManager.cs" />
+    <Compile Include="Domain\RoversManager.cs" />
     <Compile Include="Domain\Plateau.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Domain\Rover.cs" />
-    <Compile Include="Domain\Position.cs" />
+    <Compile Include="Domain\Coordinate.cs" />
+    <Compile Include="Services\CommandInterpreter.cs" />
+    <Compile Include="Services\DeploymentCommand.cs" />
+    <Compile Include="Services\NavigationCommand.cs" />
+    <Compile Include="Services\RoverCommand.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

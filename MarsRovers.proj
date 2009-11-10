@@ -34,18 +34,20 @@
   <Target Name="BuildZip" DependsOnTargets="Test">
     <ItemGroup>
 	  <ZipFiles Include="$(SolutionDir)\*.sln" />
+	  <ZipFiles Include="$(SolutionDir)\*.txt" />
       
-	  <!--<ZipFiles Include="$(CoreProjectDir)\bin\**\*.*"/>-->
-      <ZipFiles Include="$(CoreProjectDir)\Domain\*.*"/>
+	  <ZipFiles Include="$(CoreProjectDir)\Domain\*.*"/>
 	  <ZipFiles Include="$(CoreProjectDir)\Extensions\*.*"/>
       <ZipFiles Include="$(CoreProjectDir)\Properties\*.*"/>
+	  <ZipFiles Include="$(CoreProjectDir)\Infrastructure\*.*"/>
+	  <ZipFiles Include="$(CoreProjectDir)\Services\*.*"/>
       <ZipFiles Include="$(CoreProjectDir)\*.*"/>
       
-	  <!--<ZipFiles Include="$(TestProjectDir)\bin\**\*.*"/>-->
+	  
       <ZipFiles Include="$(TestProjectDir)\Properties\*.*"/>
 	  <ZipFiles Include="$(TestProjectDir)\*.*"/>
 	  
-	  <!--<ZipFiles Include="$(ConsoleProjectDir)\bin\**\*.*"/>-->
+	  
 	  <ZipFiles Include="$(ConsoleProjectDir)\Exceptions\*.*"/>
       <ZipFiles Include="$(ConsoleProjectDir)\Properties\*.*"/>
       <ZipFiles Include="$(ConsoleProjectDir)\*.*"/>      
@@ -53,6 +55,7 @@
 	  <ZipFiles Include="lib\**\*.*"/>
       <ZipFiles Include="*.bat" />
       <ZipFiles Include="*.proj" />      
+	  
     </ItemGroup>	    
     <Zip Files="@(ZipFiles)"
          ZipFileName="PedroReysCodeSample.zip"

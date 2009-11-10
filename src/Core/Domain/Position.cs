@@ -1,31 +1,59 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
 namespace MarsRovers.Core
 {
-    public class Position
+    public class Position : IEquatable<Position> , IComparable<Position> 
     {
-        private int _x;
-        private int _y;
+        private int _position;
 
-        public int X
+        public Position(int position)
         {
-            get { return _x; }
-            set { _x = value; }
+            _position = position;
         }
 
-        public int Y
+        public void Increment()
         {
-            get { return _y; }
-            set { _y = value; }
+            _position++;
         }
 
-        public Position(int x, int y)
+        public void Decrement()
         {
-            _x = x;
-            _y = y;
+            _position--;
+        }
+
+        public static implicit operator int(Position position)
+        {
+            return position._position;
+        }
+
+        public static implicit operator Position(int position)
+        {
+            return new Position(position);
+        }
+
+        public bool Equals(Position other)
+        {
+            return _position == other;
         }
 
         public override string ToString()
         {
-            return string.Concat(_x, " ", _y);
+            return _position.ToString();
+        }
+        
+        public int CompareTo(Position other)
+        {
+            if(_position > other)
+            {
+                return 1;
+            }
+            else if(_position == other)
+            {
+                return 0;
+            }
+            return -1; 
         }
     }
 }

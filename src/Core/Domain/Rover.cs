@@ -3,76 +3,43 @@ using System.Linq;
 
 namespace MarsRovers.Core
 {
-    public class Rover
+    public class Rover : IRover
     {
-        private Direction _direction;
-        private Position _position;
+        private IHeading _heading;
+        private Coordinate _coordinate;
         private const char _BLANK = ' ';
         private IPlateau _plateau;
         
-        private Direction[] _directions = new Direction[4]
-                                              {
-                                                  new Direction('N', 'W', 'E'),
-                                                  new Direction('E', 'N', 'S'),
-                                                  new Direction('S', 'E', 'W'),
-                                                  new Direction('W', 'S', 'N')
-                                              };
-
-        public Rover(IPlateau plateau, Position position, char heading)
+        public Rover(IPlateau plateau, Coordinate coordinate, IHeading heading)
         {
             _plateau = plateau;
-            _position = position;
-            _direction = _directions.First(d => d.Heading == heading);
+            _coordinate = coordinate;
+            _heading = heading;
         }
 
-        public Position Position
+        public Coordinate Coordinate
         {
-            get { return _position; }
+            get { return _coordinate; }
         }
         
         public void RotateRight()
         {
-            _direction = _directions.First(d => d.Heading == _direction.Right);
+            _heading = _heading.RotateRight();
         }
 
         public void RotateLeft()
         {
-            _direction = _directions.First(d => d.Heading == _direction.Left);
+            _heading = _heading.RotateLeft();
         }
 
         public void Move()
         {
-            _position = GetTargetPosition();
+            _coordinate.MoveAhead(_heading);
         }
 
         public override string ToString()
         {
-            return String.Concat(Position.ToString(), _BLANK, _direction.Heading);
+            return String.Concat(Coordinate.ToString(), _BLANK, _heading.ToString());
         }
-
-        /*
-         * To ensure that the target position is always a valid one, the rover asks the plateau the position to where
-         * it wants to move. That prevents the rover to move to an unkown position.
-         * I introduced this check because we don't wanna loose our Rovers in Mars, do we? :) 
-         */
-        
-        private Position GetTargetPosition()
-        {
-            switch (_direction.Heading)
-            {
-                case 'N':
-                    return _plateau.GetPositionNorthOf(Position);
-                case 'S':
-                    return _plateau.GetPositionSouthOf(Position);
-                case 'E':
-                    return _plateau.GetPositionEastOf(Position);
-                case 'W':
-                    return _plateau.GetPositionWestOf(Position);
-            }
-            return this.Position;
-        }
-
-        
-
     }
 }

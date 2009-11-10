@@ -6,11 +6,11 @@ namespace MarsRovers.Core
 {
     public class Plateau : IPlateau
     {
-        private IList<Position> _grid;
+        private IList<Coordinate> _grid;
 
-        public Plateau(Position position)
+        public Plateau(Coordinate coordinate)
         {
-            BuildGrid(position);
+            BuildGrid(coordinate);
         }
 
         public int GetSize()
@@ -18,74 +18,37 @@ namespace MarsRovers.Core
             return _grid.Max(x => x.X) * _grid.Max(y => y.Y);
         }
 
-        public Position GetPosition(int x, int y)
+        public Coordinate GetPosition(int x, int y)
         {
             return _grid.Where(s => s.X == x && s.Y == y).First();
         }
-
-
-        /* 
-            The GetPositions Methods are used to inform a rover to what position 
-            it should move. To ensure that the rover stays always within plateau's boudaries
-            if the rover asks for a position outside of the plateu, rover's actual position is returned, 
-            i.e. the rover doesn't move. 
-         */
-
-        public Position GetPositionNorthOf(Position position)
+        
+        private void BuildGrid(Coordinate maxCoordinate)
         {
-            if (IsInNorthBoundary(position))
-                return position;
-            return GetPosition(position.X, position.Y + 1);
+            _grid = new List<Coordinate>();
+            for (int _x = 0; _x <= maxCoordinate.X; _x++)
+                for (int _y = 0; _y <= maxCoordinate.Y; _y++)
+                    _grid.Add(new Coordinate(_x, _y));
         }
 
-        public Position GetPositionEastOf(Position position)
+        public bool IsInNorthBoundary(Coordinate coordinate)
         {
-            if (IsInEastBoundary(position))
-                return position;
-            return GetPosition(position.X + 1, position.Y);
+            return (coordinate.Y.Equals(_grid.Max(p => p.Y)));
         }
 
-        public Position GetPositionSouthOf(Position position)
+        public bool IsInSouthBoundary(Coordinate coordinate)
         {
-            if (IsInSouthBoundary(position))
-                return position;
-            return GetPosition(position.X, position.Y - 1);
+            return (coordinate.Y.Equals(_grid.Min(p => p.Y)));
         }
 
-        public Position GetPositionWestOf(Position position)
+        public bool IsInEastBoundary(Coordinate coordinate)
         {
-            if (IsInWestBoundary(position))
-                return position;
-            return GetPosition(position.X - 1, position.Y);
+            return (coordinate.X.Equals(_grid.Max(p => p.X)));
         }
 
-        private void BuildGrid(Position maxPosition)
+        public bool IsInWestBoundary(Coordinate coordinate)
         {
-            _grid = new List<Position>();
-            for (int _x = 0; _x <= maxPosition.X; _x++)
-                for (int _y = 0; _y <= maxPosition.Y; _y++)
-                    _grid.Add(new Position(_x, _y));
-        }
-
-
-        private bool IsInNorthBoundary(Position position)
-        {
-            return (position.Y == _grid.Max(p => p.Y));
-        }
-
-        private bool IsInSouthBoundary(Position position)
-        {
-            return (position.Y == _grid.Min(p => p.Y));
-        }
-
-        private bool IsInEastBoundary(Position position)
-        {
-            return (position.X == _grid.Max(p => p.X));
-        }
-
-        private bool IsInWestBoundary(Position position)
-        {
-            return (position.X == _grid.Min(p => p.X));
+            return (coordinate.X.Equals(_grid.Min(p => p.X)));
         }
         
     }

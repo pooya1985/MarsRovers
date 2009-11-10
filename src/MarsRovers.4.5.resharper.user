@@ -1,0 +1,164 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="livetemplates.csharp.usevar">True</setting>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="Console" priority="3" />
+      <Item value="public" priority="3" />
+      <Item value="static" priority="2" />
+      <Item value="class" priority="0" />
+      <Item value="void" priority="2" />
+      <Item value="string" priority="7" />
+      <Item value="System" priority="3" />
+      <Item value="text" priority="0" />
+      <Item value="var" priority="7" />
+      <Item value="INSTRUCTIONS" priority="0" />
+      <Item value="StringBuilder" priority="5" />
+      <Item value="new" priority="8" />
+      <Item value="while" priority="0" />
+      <Item value="if" priority="8" />
+      <Item value="cmd" priority="0" />
+      <Item value="break" priority="0" />
+      <Item value="commands" priority="4" />
+      <Item value="private" priority="2" />
+      <Item value="MarsRovers" priority="0" />
+      <Item value="manager" priority="0" />
+      <Item value="output" priority="2" />
+      <Item value="s" priority="7" />
+      <Item value="args" priority="5" />
+      <Item value="true" priority="0" />
+      <Item value="foreach" priority="2" />
+      <Item value="String" priority="1" />
+      <Item value="empty" priority="1" />
+      <Item value="false" priority="1" />
+      <Item value="return" priority="3" />
+      <Item value="Any" priority="0" />
+      <Item value="IsEmpty" priority="1" />
+      <Item value="else" priority="1" />
+      <Item value="Contains" priority="0" />
+      <Item value="parameter" priority="6" />
+      <Item value="throw" priority="1" />
+      <Item value="Exception" priority="2" />
+      <Item value="Exceptions" priority="1" />
+      <Item value="override" priority="1" />
+      <Item value="PrefixOf" priority="0" />
+      <Item value="TextReader" priority="1" />
+      <Item value="File" priority="0" />
+      <Item value="filePath" priority="0" />
+      <Item value="FileMode" priority="0" />
+      <Item value="StreamReader" priority="2" />
+      <Item value="FileStream" priority="0" />
+      <Item value="file" priority="1" />
+      <Item value="try" priority="0" />
+      <Item value="catch" priority="0" />
+      <Item value="ex" priority="2" />
+      <Item value="bool" priority="0" />
+      <Item value="this" priority="0" />
+      <Item value="strings" priority="2" />
+      <Item value="All" priority="0" />
+      <Item value="helpText" priority="1" />
+      <Item value="HelpException" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Console">
+      <Item value="WriteLine" priority="1" />
+      <Item value="ReadLine" priority="0" />
+      <Item value="ReadKey" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="Print" priority="0" />
+      <Item value="PrintLn" priority="6" />
+      <Item value="Replace" priority="2" />
+      <Item value="Remove" priority="2" />
+      <Item value="Length" priority="3" />
+      <Item value="Substring" priority="0" />
+      <Item value="IndexOf" priority="0" />
+      <Item value="LastIndexOf" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Text.StringBuilder">
+      <Item value="AppendLine" priority="2" />
+      <Item value="ToString" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MarsRovers.Core.RoversManager">
+      <Item value="Execute" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.String">
+      <Item value="Intern" priority="0" />
+      <Item value="IsNullOrEmpty" priority="2" />
+      <Item value="Empty" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.File">
+      <Item value="Open" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.FileMode">
+      <Item value="Open" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.FileStream">
+      <Item value="Read" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.StreamReader">
+      <Item value="ReadToEnd" priority="0" />
+      <Item value="Dispose" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Exception">
+      <Item value="Message" priority="1" />
+      <Item value="InnerException" priority="1" />
+      <Item value="ToString" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="95CD7D59-BA0C-424C-8EE7-14737D075971/d:Extensions/f:StringExtensions.cs" caret="171" fromTop="6" />
+      <File id="9D45A5CA-BE04-4B67-8668-DFAF0D49B5AE/f:MarsRoverUnitTest.cs" caret="131" fromTop="6" />
+      <File id="95CD7D59-BA0C-424C-8EE7-14737D075971/d:Domain/f:Direction.cs" caret="0" fromTop="0" />
+      <File id="95CD7D59-BA0C-424C-8EE7-14737D075971/d:Domain/f:Rover.cs" caret="1938" fromTop="56" />
+      <File id="95CD7D59-BA0C-424C-8EE7-14737D075971/f:RoversManager.cs" caret="576" fromTop="0" />
+      <File id="95CD7D59-BA0C-424C-8EE7-14737D075971/d:Domain/f:Plateau.cs" caret="888" fromTop="0" />
+      <File id="A96970DF-43A3-40B2-AFBB-B06DFE74C129/f:Program.cs" caret="746" fromTop="16" />
+      <File id="A96970DF-43A3-40B2-AFBB-B06DFE74C129/d:Exceptions/f:HelpException.cs" caret="548" fromTop="14" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="A96970DF-43A3-40B2-AFBB-B06DFE74C129/f:Program.cs" caret="617" fromTop="8" />
+      <File id="A96970DF-43A3-40B2-AFBB-B06DFE74C129/f:Program.cs" caret="616" fromTop="2" />
+      <File id="A96970DF-43A3-40B2-AFBB-B06DFE74C129/f:Program.cs" caret="1818" fromTop="4" />
+      <File id="A96970DF-43A3-40B2-AFBB-B06DFE74C129/f:Program.cs" caret="1808" fromTop="10" />
+      <File id="A96970DF-43A3-40B2-AFBB-B06DFE74C129/f:Program.cs" caret="1787" fromTop="12" />
+      <File id="A96970DF-43A3-40B2-AFBB-B06DFE74C129/f:Program.cs" caret="800" fromTop="11" />
+      <File id="95CD7D59-BA0C-424C-8EE7-14737D075971/d:Extensions/f:StringExtensions.cs" caret="171" fromTop="6" />
+      <File id="A96970DF-43A3-40B2-AFBB-B06DFE74C129/f:Program.cs" caret="1624" fromTop="11" />
+      <File id="A96970DF-43A3-40B2-AFBB-B06DFE74C129/f:Program.cs" caret="1904" fromTop="26" />
+      <File id="A96970DF-43A3-40B2-AFBB-B06DFE74C129/f:Program.cs" caret="2656" fromTop="23" />
+      <File id="A96970DF-43A3-40B2-AFBB-B06DFE74C129/f:Program.cs" caret="3156" fromTop="56" />
+      <File id="A96970DF-43A3-40B2-AFBB-B06DFE74C129/f:Program.cs" caret="1818" fromTop="41" />
+      <File id="A96970DF-43A3-40B2-AFBB-B06DFE74C129/f:Program.cs" caret="923" fromTop="18" />
+      <File id="A96970DF-43A3-40B2-AFBB-B06DFE74C129/f:Program.cs" caret="616" fromTop="9" />
+      <File id="95CD7D59-BA0C-424C-8EE7-14737D075971/f:RoversManager.cs" caret="198" fromTop="7" />
+      <File id="95CD7D59-BA0C-424C-8EE7-14737D075971/f:RoversManager.cs" caret="792" fromTop="21" />
+      <File id="95CD7D59-BA0C-424C-8EE7-14737D075971/f:RoversManager.cs" caret="893" fromTop="26" />
+      <File id="95CD7D59-BA0C-424C-8EE7-14737D075971/d:Domain/f:Plateau.cs" caret="2117" fromTop="11" />
+      <File id="95CD7D59-BA0C-424C-8EE7-14737D075971/d:Domain/f:Plateau.cs" caret="2673" fromTop="30" />
+      <File id="95CD7D59-BA0C-424C-8EE7-14737D075971/d:Domain/f:Plateau.cs" caret="888" fromTop="9" />
+      <File id="95CD7D59-BA0C-424C-8EE7-14737D075971/f:RoversManager.cs" caret="576" fromTop="8" />
+      <File id="95CD7D59-BA0C-424C-8EE7-14737D075971/d:Domain/f:Rover.cs" caret="1888" fromTop="20" />
+      <File id="A96970DF-43A3-40B2-AFBB-B06DFE74C129/f:Program.cs" caret="418" fromTop="11" />
+      <File id="A96970DF-43A3-40B2-AFBB-B06DFE74C129/f:Program.cs" caret="1081" fromTop="21" />
+      <File id="A96970DF-43A3-40B2-AFBB-B06DFE74C129/f:Program.cs" caret="1384" fromTop="30" />
+      <File id="A96970DF-43A3-40B2-AFBB-B06DFE74C129/f:Program.cs" caret="1285" fromTop="26" />
+      <File id="A96970DF-43A3-40B2-AFBB-B06DFE74C129/d:Exceptions/f:HelpException.cs" caret="548" fromTop="6" />
+      <File id="A96970DF-43A3-40B2-AFBB-B06DFE74C129/f:Program.cs" caret="1743" fromTop="27" />
+      <File id="A96970DF-43A3-40B2-AFBB-B06DFE74C129/f:Program.cs" caret="1520" fromTop="26" />
+      <File id="A96970DF-43A3-40B2-AFBB-B06DFE74C129/d:Exceptions/f:HelpException.cs" caret="480" fromTop="10" />
+    </RecentEdits>
+  </RecentFiles>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+</Configuration>

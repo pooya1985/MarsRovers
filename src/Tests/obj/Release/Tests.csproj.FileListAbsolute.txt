@@ -1,0 +1,11 @@
+C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Tests\bin\Release\MarsRovers.Tests.Contracts.dll
+C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Tests\bin\Release\MarsRovers.Tests.Contracts.pdb
+C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Tests\bin\Release\MarsRovers.Tests.dll
+C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Tests\bin\Release\MarsRovers.Tests.pdb
+C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Tests\bin\Release\MarsRovers.Core.dll
+C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Tests\bin\Release\nunit.framework.dll
+C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Tests\bin\Release\MarsRovers.Core.pdb
+C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Tests\bin\Release\nunit.framework.xml
+C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Tests\obj\Release\ResolveAssemblyReference.cache
+C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Tests\obj\Release\MarsRovers.Tests.dll
+C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Tests\obj\Release\MarsRovers.Tests.pdb

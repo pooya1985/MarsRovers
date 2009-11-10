@@ -1,0 +1,51 @@
+using MarsRovers.Core;
+using NUnit.Framework;
+
+namespace MarsRovers.Tests
+{
+    [TestFixture]
+    public class MarsRoverUnitTest
+    {
+        private RoversManager manager;
+        private string command = "5 5\n1 2 N\nLMLMLMLMM\n3 3 E\nMMRMMRMRRM";
+
+        [SetUp]
+        public void TestSetUp()
+        {
+            manager = new RoversManager();
+        }
+
+        [Test]
+        public void Should_Set_The_Size_Of_The_Plateu_With_The_First_Line_Commands()
+        {
+            manager.Execute(command);
+            int result = manager.GetPlateauSize();
+            Assert.AreEqual(25, result);
+        }
+
+        [Test]
+        public void Should_Set_the_Position_Of_Rover_From_Second_Line_Commands()
+        {
+            var result = manager.Execute(command).Split('\n')[0];
+            var expected = "1 3 N";
+            Assert.AreEqual(expected, result);
+        }
+
+        [Test]
+        public void Should_Execute_Commands_Of_Both_Rovers()
+        {
+            var result = manager.Execute(command);
+            var expected = "1 3 N\n5 1 E\n";
+            Assert.AreEqual(expected, result);
+        }
+
+        [Test]
+        public void Should_Ignore_Moves_Outside_Plateau()
+        {
+            var cmd = "5 5\n0 0 S\nM";
+            var expected = "0 0 S\n";
+            var result = manager.Execute(cmd);
+            Assert.AreEqual(expected, result);
+        }
+    }
+}

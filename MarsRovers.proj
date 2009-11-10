@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- Import the MSBuild Tasks -->
+  <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" />
+  
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ClassLibraryOutputDirectory>MarsRovers\Core\bin\$(Configuration)</ClassLibraryOutputDirectory>
+	<SolutionDir>src</SolutionDir>	
+    <CoreProjectDir>$(SolutionDir)\Core</CoreProjectDir >
+    <TestProjectDir>$(SolutionDir)\Tests</TestProjectDir >
+	<ConsoleProjectDir>$(SolutionDir)\Console</ConsoleProjectDir>
+	
+    <CoreProjectFile>$(CoreProjectDir)\Core.csproj</CoreProjectFile >
+    <TestProjectFile>$(TestProjectDir)\Tests.csproj</TestProjectFile >	
+	<ProjectConsoleFile>$(ConsoleProjectDir)\Console.csproj</ProjectConsoleFile>
+	
+    
+  </PropertyGroup>  
+  
+  <Target Name="Build">
+    <MSBuild Projects="$(CoreProjectFile)" />
+    <MSBuild Projects="$(TestProjectFile)" />
+	<MSBuild Projects="$(ProjectConsoleFile)" />
+  </Target>
+  
+  <Target Name="Test" DependsOnTargets="Build">
+	<ItemGroup>
+		<TestAssembly Include="$(TestProjectDir)\bin\$(Configuration)\*.Tests.dll" />
+	</ItemGroup>
+    <NUnit Assemblies="@(TestAssembly)" ToolPath="lib\NUnit\"/>
+  </Target>
+
+  <Target Name="BuildZip" DependsOnTargets="Test">
+    <ItemGroup>
+	  <ZipFiles Include="$(SolutionDir)\*.sln" />
+      
+	  <!--<ZipFiles Include="$(CoreProjectDir)\bin\**\*.*"/>-->
+      <ZipFiles Include="$(CoreProjectDir)\Domain\*.*"/>
+	  <ZipFiles Include="$(CoreProjectDir)\Extensions\*.*"/>
+      <ZipFiles Include="$(CoreProjectDir)\Properties\*.*"/>
+      <ZipFiles Include="$(CoreProjectDir)\*.*"/>
+      
+	  <!--<ZipFiles Include="$(TestProjectDir)\bin\**\*.*"/>-->
+      <ZipFiles Include="$(TestProjectDir)\Properties\*.*"/>
+	  <ZipFiles Include="$(TestProjectDir)\*.*"/>
+	  
+	  <!--<ZipFiles Include="$(ConsoleProjectDir)\bin\**\*.*"/>-->
+	  <ZipFiles Include="$(ConsoleProjectDir)\Exceptions\*.*"/>
+      <ZipFiles Include="$(ConsoleProjectDir)\Properties\*.*"/>
+      <ZipFiles Include="$(ConsoleProjectDir)\*.*"/>      
+      
+	  <ZipFiles Include="lib\**\*.*"/>
+      <ZipFiles Include="*.bat" />
+      <ZipFiles Include="*.proj" />      
+    </ItemGroup>	    
+    <Zip Files="@(ZipFiles)"
+         ZipFileName="PedroReysCodeSample.zip"
+         ZipLevel="9" />
+  </Target>
+          
+  
+</Project>
+

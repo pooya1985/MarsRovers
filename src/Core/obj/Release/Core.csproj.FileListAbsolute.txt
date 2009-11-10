@@ -1,0 +1,7 @@
+C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Core\bin\Release\MarsRovers.Core.Contracts.dll
+C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Core\bin\Release\MarsRovers.Core.Contracts.pdb
+C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Core\bin\Release\MarsRovers.Core.dll
+C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Core\bin\Release\MarsRovers.Core.pdb
+C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Core\obj\Release\ResolveAssemblyReference.cache
+C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Core\obj\Release\MarsRovers.Core.dll
+C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Core\obj\Release\MarsRovers.Core.pdb

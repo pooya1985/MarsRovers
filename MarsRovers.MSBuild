@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- Import the MSBuild Tasks -->
+  <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" />
+  
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ClassLibraryOutputDirectory>MarsRovers\Core\bin\$(Configuration)</ClassLibraryOutputDirectory>
+	<SolutionDir>src</SolutionDir>	
+    <CoreProjectDir>$(SolutionDir)\Core</CoreProjectDir >
+    <TestProjectDir>$(SolutionDir)\Tests</TestProjectDir >
+	<ConsoleProjectDir>$(SolutionDir)\Console</ConsoleProjectDir>
+	<RSharperDir>$(SolutionDir)\_ReSharper.MarsRovers</RSharperDir>
+	
+    <CoreProjectFile>$(CoreProjectDir)\Core.csproj</CoreProjectFile >
+    <TestProjectFile>$(TestProjectDir)\Tests.csproj</TestProjectFile >	
+	<ProjectConsoleFile>$(ConsoleProjectDir)\Console.csproj</ProjectConsoleFile>
+	
+    
+  </PropertyGroup>  
+  
+  <Target Name="Build">
+    <MSBuild Projects="$(CoreProjectFile)" />
+    <MSBuild Projects="$(TestProjectFile)" />
+	<MSBuild Projects="$(ProjectConsoleFile)" />
+  </Target>
+  
+  <Target Name="Test" DependsOnTargets="Build">
+	<ItemGroup>
+		<TestAssembly Include="$(TestProjectDir)\bin\$(Configuration)\*.Tests.dll" />
+	</ItemGroup>
+    <NUnit Assemblies="@(TestAssembly)" ToolPath="lib\NUnit\"/>
+  </Target>
+
+  <Target Name="Clean" DependsOnTargets="Test">
+	<RemoveDir Directories="$(RSharperDir)" />
+	<RemoveDir Directories="$(CoreProjectDir)\obj" />
+	<RemoveDir Directories="$(TestProjectDir)\obj" />
+	<RemoveDir Directories="$(ConsoleProjectDir)\obj" />
+	<Delete Files="$(SolutionDir)\MarsRovers.4.5.resharper.user" />
+	<Delete Files="TestResult.xml" />
+  </Target>
+  
+  <Target Name="Compress" DependsOnTargets="Clean">
+    <ItemGroup>
+	  <ZipFiles Include="$(SolutionDir)\*.sln" />
+	  <ZipFiles Include="$(SolutionDir)\*.txt" />
+      
+	  <ZipFiles Include="$(CoreProjectDir)\Domain\*.*"/>
+	  <ZipFiles Include="$(CoreProjectDir)\Extensions\*.*"/>
+      <ZipFiles Include="$(CoreProjectDir)\Properties\*.*"/>
+	  <ZipFiles Include="$(CoreProjectDir)\Infrastructure\*.*"/>
+	  <ZipFiles Include="$(CoreProjectDir)\Services\*.*"/>
+      <ZipFiles Include="$(CoreProjectDir)\*.*"/>
+      
+	  
+      <ZipFiles Include="$(TestProjectDir)\Properties\*.*"/>
+	  <ZipFiles Include="$(TestProjectDir)\*.*"/>
+	  
+	  
+	  <ZipFiles Include="$(ConsoleProjectDir)\Exceptions\*.*"/>
+      <ZipFiles Include="$(ConsoleProjectDir)\Properties\*.*"/>
+      <ZipFiles Include="$(ConsoleProjectDir)\*.*"/>      
+      
+	  <ZipFiles Include="lib\**\*.*"/>
+      <ZipFiles Include="*.bat" />
+      <ZipFiles Include="*.MSBuild" />      
+	  
+    </ItemGroup>	    
+    <Zip Files="@(ZipFiles)"
+         ZipFileName="PedroReysMarsRovers.zip"
+         ZipLevel="9" />
+  </Target>
+  
+  
+          
+  
+</Project>
+

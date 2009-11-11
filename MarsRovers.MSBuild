@@ -38,6 +38,7 @@
 	<RemoveDir Directories="$(TestProjectDir)\obj" />
 	<RemoveDir Directories="$(ConsoleProjectDir)\obj" />
 	<Delete Files="$(SolutionDir)\MarsRovers.4.5.resharper.user" />
+	<Delete Files="$(SolutionDir)\*.suo" />
 	<Delete Files="TestResult.xml" />
   </Target>
   

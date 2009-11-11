@@ -11,7 +11,6 @@ namespace MarsRovers.Core
         private const char LINE_BREAK = '\n';
 
         private IPlateau _plateau;
-        private RoversRepository _rovRepository;
         private NavigationCommandRepository _navRepository;
         private HeadingRepository _headingRepository;
         private CommandInterpreter interpreter;

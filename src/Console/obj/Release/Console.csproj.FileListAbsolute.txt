@@ -1,9 +1,0 @@
-C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Console\bin\Release\MarsRovers.Console.Contracts.dll
-C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Console\bin\Release\MarsRovers.Console.Contracts.pdb
-C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Console\bin\Release\MarsRovers.Console.exe
-C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Console\bin\Release\MarsRovers.Console.pdb
-C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Console\bin\Release\MarsRovers.Core.dll
-C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Console\bin\Release\MarsRovers.Core.pdb
-C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Console\obj\Release\ResolveAssemblyReference.cache
-C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Console\obj\Release\MarsRovers.Console.exe
-C:\dev\work\ThoughtWorks\CodeSamples\MarsRovers\Console\obj\Release\MarsRovers.Console.pdb

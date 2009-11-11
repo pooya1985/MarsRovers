@@ -55,7 +55,6 @@
     <Compile Include="Domain\Position.cs" />
     <Compile Include="Infrastructure\HeadingRepository.cs" />
     <Compile Include="Infrastructure\NavigationCommandRepository.cs" />
-    <Compile Include="Infrastructure\RoversRepository.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Domain\RoversManager.cs" />
     <Compile Include="Domain\Plateau.cs" />

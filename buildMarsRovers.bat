@@ -1,1 +1,0 @@
-lib\MSBuild\MSBuild.exe MarsRovers.proj /target:Test & pause

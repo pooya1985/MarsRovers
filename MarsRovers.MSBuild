@@ -34,8 +34,11 @@
 
   <Target Name="Clean" DependsOnTargets="Test">
 	<RemoveDir Directories="$(RSharperDir)" />
+	<RemoveDir Directories="$(CoreProjectDir)\bin" />
 	<RemoveDir Directories="$(CoreProjectDir)\obj" />
+	<RemoveDir Directories="$(TestProjectDir)\bin" />
 	<RemoveDir Directories="$(TestProjectDir)\obj" />
+	<RemoveDir Directories="$(ConsoleProjectDir)\bin" />
 	<RemoveDir Directories="$(ConsoleProjectDir)\obj" />
 	<Delete Files="$(SolutionDir)\MarsRovers.4.5.resharper.user" />
 	<Delete Files="$(SolutionDir)\*.suo" />

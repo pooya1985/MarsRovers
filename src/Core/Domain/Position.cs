@@ -1,59 +1,42 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace MarsRovers.Core
 {
-    public class Position : IEquatable<Position> , IComparable<Position> 
+    public class Position
     {
-        private int _position;
-
-        public Position(int position)
+        private Spot _spot;
+        private Heading _heading;
+        
+        public Spot Spot
         {
-            _position = position;
+            get { return _spot; }
+            set { _spot = value; }
+        }
+
+        public Position(Spot spot, Heading heading)
+        {
+            Spot = spot;
+            _heading = heading;
         }
 
         public void Increment()
         {
-            _position++;
+            _heading.MovePositionAhead(this);
+        }
+        
+        public void RotateLeft()
+        {
+            _heading = _heading.RotateLeft();
         }
 
-        public void Decrement()
+        public void RotateRight()
         {
-            _position--;
-        }
-
-        public static implicit operator int(Position position)
-        {
-            return position._position;
-        }
-
-        public static implicit operator Position(int position)
-        {
-            return new Position(position);
-        }
-
-        public bool Equals(Position other)
-        {
-            return _position == other;
+            _heading = _heading.RotateRight();
         }
 
         public override string ToString()
         {
-            return _position.ToString();
-        }
-        
-        public int CompareTo(Position other)
-        {
-            if(_position > other)
-            {
-                return 1;
-            }
-            else if(_position == other)
-            {
-                return 0;
-            }
-            return -1; 
+            return string.Format("{0} {1}",Spot,_heading);
         }
     }
 }

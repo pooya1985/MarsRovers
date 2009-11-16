@@ -5,24 +5,24 @@ using System.Linq;
 
 namespace MarsRovers.Core
 {
-    public class HeadingRepository : IEnumerable<IHeading>
+    public class HeadingRepository : IEnumerable<Heading>
     {
-        private IList<IHeading> _headings;
+        private IList<Heading> _headings;
 
-        public HeadingRepository(params IHeading[] headings)
+        public HeadingRepository(params Heading[] headings)
         {
-            _headings = new List<IHeading>(headings);
+            _headings = new List<Heading>(headings);
         }
 
-        public IHeading GetHeading(char heading)
+        public Heading GetHeading(char heading)
         {
             return _headings.First(h => h.Code.Equals(heading));
         }
-        public void Add(IHeading heading)
+        public void Add(Heading heading)
         {
             _headings.Add(heading);
         }
-        public IEnumerator<IHeading> GetEnumerator()
+        public IEnumerator<Heading> GetEnumerator()
         {
             return _headings.GetEnumerator();    
         }

@@ -1,18 +1,17 @@
+using System;
+
 namespace MarsRovers.Core.Services
 {
     public class DeploymentCommand
     {
-        private Coordinate _coordinate;
-        private IHeading _heading;
-        public Coordinate Coordinate { get { return _coordinate; } }
-        public IHeading Heading { get { return _heading; } }
+        private Position _position;
+        private Heading _heading;
+        public Position Position { get { return _position; } }
+        public Heading Heading { get { return _heading; } }
 
-        public DeploymentCommand(Coordinate coordinate, IHeading heading)
+        public DeploymentCommand(Position position)
         {
-            _coordinate = coordinate;
-            _heading = heading;
+            _position = position;
         }
-
-
     }
 }

@@ -3,43 +3,38 @@ using System.Linq;
 
 namespace MarsRovers.Core
 {
-    public class Rover : IRover
+    public class Rover : Vehicle
     {
-        private IHeading _heading;
-        private Coordinate _coordinate;
-        private const char _BLANK = ' ';
-        private IPlateau _plateau;
+        private Position _position;
         
-        public Rover(IPlateau plateau, Coordinate coordinate, IHeading heading)
+        public Rover(Position position)
         {
-            _plateau = plateau;
-            _coordinate = coordinate;
-            _heading = heading;
+                _position = position;
         }
 
-        public Coordinate Coordinate
+        public Position Position
         {
-            get { return _coordinate; }
+            get { return _position; }
         }
         
         public void RotateRight()
         {
-            _heading = _heading.RotateRight();
+            _position.RotateRight();
         }
 
         public void RotateLeft()
         {
-            _heading = _heading.RotateLeft();
+            _position.RotateLeft();
         }
 
         public void Move()
         {
-            _coordinate.MoveAhead(_heading);
+            _position.Increment();
         }
 
         public override string ToString()
         {
-            return String.Concat(Coordinate.ToString(), _BLANK, _heading.ToString());
+            return Position.ToString();
         }
     }
 }

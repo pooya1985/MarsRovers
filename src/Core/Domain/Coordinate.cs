@@ -1,36 +1,59 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
 namespace MarsRovers.Core
 {
-    public class Coordinate
+    public class Coordinate : IEquatable<Coordinate> , IComparable<Coordinate> 
     {
-        private Position _x;
-        private Position _y;
-        
-        public Position X
+        private int _value;
+
+        public Coordinate(int value)
         {
-            get { return _x; }
-            set { _x = value; }
+            _value = value;
         }
 
-        public Position Y
+        public void Increment()
         {
-            get { return _y; }
-            set { _y = value; }
+            _value++;
         }
 
-        public Coordinate(int x, int y)
+        public void Decrement()
         {
-            _x = x;
-            _y = y;
+            _value--;
         }
 
-        public void MoveAhead(IHeading heading)
+        public static implicit operator int(Coordinate coordinate)
         {
-            heading.Move(this);
+            return coordinate._value;
+        }
+
+        public static implicit operator Coordinate(int position)
+        {
+            return new Coordinate(position);
+        }
+
+        public bool Equals(Coordinate other)
+        {
+            return _value == other;
         }
 
         public override string ToString()
         {
-            return string.Concat(_x.ToString(), " ", _y.ToString());
+            return _value.ToString();
+        }
+        
+        public int CompareTo(Coordinate other)
+        {
+            if(_value > other)
+            {
+                return 1;
+            }
+            else if(_value == other)
+            {
+                return 0;
+            }
+            return -1; 
         }
     }
 }

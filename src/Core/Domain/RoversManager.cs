@@ -10,7 +10,7 @@ namespace MarsRovers.Core
     {
         private const char LINE_BREAK = '\n';
 
-        private IPlateau _plateau;
+        private Plateau _plateau;
         private NavigationCommandRepository _navRepository;
         private HeadingRepository _headingRepository;
         private CommandInterpreter interpreter;
@@ -39,10 +39,10 @@ namespace MarsRovers.Core
         {
             _headingRepository = new HeadingRepository
                                      {
-                                         new HeadingNorth(_plateau),
-                                         new HeadingEast(_plateau),
-                                         new HeadingSouth(_plateau),
-                                         new HeadingWest(_plateau)
+                                         new North(_plateau),
+                                         new East(_plateau),
+                                         new South(_plateau),
+                                         new West(_plateau)
 
                                      };
         }
@@ -69,7 +69,7 @@ namespace MarsRovers.Core
 
         private void InitializePlateau(string cmd)
         {
-            _plateau = new Plateau(CommandInterpreter.GetPlateauMaxCoordinate(cmd));
+            _plateau = new MarsPlateau(CommandInterpreter.GetPlateauMaxSpot(cmd));
         }
 
         private void ExecuteRoversCommands()
@@ -92,10 +92,10 @@ namespace MarsRovers.Core
 
         private Rover DeployRover(DeploymentCommand cmd)
         {
-            return new Rover(_plateau, cmd.Coordinate, cmd.Heading);
+            return new Rover(cmd.Position);
         }
 
-        private void Navigate(IRover rover,IEnumerable<NavigationCommand> cmds)
+        private void Navigate(Vehicle rover,IEnumerable<NavigationCommand> cmds)
         {
             foreach (var cmd in cmds)
             {

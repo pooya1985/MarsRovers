@@ -22,10 +22,11 @@ namespace MarsRovers.Core.Services
 
         }
 
-        public static Coordinate GetPlateauMaxCoordinate(string commands)
+        public static Spot GetPlateauMaxSpot(string commands)
         {
             var cmd = commands.Split(LINE_BREAK)[0];
-            return GetCordinateFrom(cmd);
+            var coordinates = GetCordinatesFrom(cmd);
+            return new PlateauSpot(coordinates[0], coordinates[1]);
             
         }
 
@@ -53,18 +54,21 @@ namespace MarsRovers.Core.Services
             }
         }
 
-        private static Coordinate GetCordinateFrom(string cmd)
+        private static Coordinate[] GetCordinatesFrom(string cmd)
         {
             var coordinateCmds = cmd.Split(SEPARATOR);
-            var max_X = Int32.Parse(coordinateCmds[0]);
-            var max_Y = Int32.Parse(coordinateCmds[1]);
-            return new Coordinate(max_X, max_Y);
+            var x = new Coordinate(Int32.Parse(coordinateCmds[0]));
+            var y = new Coordinate(Int32.Parse(coordinateCmds[1]));
+            return new[] {x, y};
         }
 
         private DeploymentCommand GetDeploymentCommandFrom(string cmd)
         {
+            var coordinates = GetCordinatesFrom(cmd);
             var headingCode = Char.Parse(cmd.Split(SEPARATOR)[2]);
-            return new DeploymentCommand(GetCordinateFrom(cmd),_headingRepository.GetHeading(headingCode));
+            var heading = _headingRepository.GetHeading(headingCode);
+            var deploymentPosition = new Position(new PlateauSpot(coordinates[0],coordinates[1]),heading);
+            return new DeploymentCommand(deploymentPosition);
         }
     }
 }

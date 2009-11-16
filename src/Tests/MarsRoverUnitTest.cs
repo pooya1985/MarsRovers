@@ -1,3 +1,4 @@
+using System;
 using MarsRovers.Core;
 using NUnit.Framework;
 
@@ -40,12 +41,24 @@ namespace MarsRovers.Tests
         }
 
         [Test]
-        public void Should_Ignore_Moves_Outside_Plateau()
+        public void Should_Thrown_SpotOutsidePlateauException_If_rover_tries_to_move_outside_of_plateau()
         {
             var cmd = "5 5\n0 0 S\nM";
-            var expected = "0 0 S\n";
-            var result = manager.Execute(cmd);
-            Assert.AreEqual(expected, result);
+            Assert.That(Throws<SpotOutsidePlateauException>(() => manager.Execute(cmd)));
+                        
+        }
+
+        private static bool Throws<TException>(Action action) where TException : Exception
+        {
+            try
+            {
+                action();
+            }
+            catch(TException exception)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

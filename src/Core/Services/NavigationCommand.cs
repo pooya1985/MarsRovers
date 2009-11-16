@@ -5,14 +5,14 @@ namespace MarsRovers.Core.Services
     public class NavigationCommand
     {
         private char _command;
-        private Action<IRover> _navigationMethod;
-        public NavigationCommand(char command,Action<IRover> navigationMethod)
+        private Action<Vehicle> _navigationMethod;
+        public NavigationCommand(char command,Action<Vehicle> navigationMethod)
         {
             _command = command;
             _navigationMethod = navigationMethod;
         }
 
-        public void Navigate(IRover rover)
+        public void Navigate(Vehicle rover)
         {
             _navigationMethod(rover);
         }

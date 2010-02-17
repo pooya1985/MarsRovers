@@ -96,6 +96,7 @@ namespace MarsRovers.Console
             while (true)
             {
                 var cmd = System.Console.ReadLine();
+
                 if (cmd == "RUN")
                     break;
                 commands.AppendLine(cmd);

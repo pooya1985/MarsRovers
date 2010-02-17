@@ -47,7 +47,6 @@ namespace MarsRovers.Tests
         {
             var cmd = "5 5\n0 0 S\nM";
             Assert.That(Throws<InvalidCommandException>(() => manager.Execute(cmd)));
-                        
         }
 
         private static bool Throws<TException>(Action action) where TException : Exception

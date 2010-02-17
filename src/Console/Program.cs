@@ -79,9 +79,9 @@ namespace MarsRovers.Console
 
         private static void ExecuteCommands()
         {
-            var manager = new Mothership();
+            var mothership = new Mothership();
             InstantiateOutput();
-            output.AppendLine(manager.Execute(commands.ToString()));
+            output.AppendLine(mothership.Execute(commands.ToString()));
         }
 
         private static void InstantiateOutput()

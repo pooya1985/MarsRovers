@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using MarsRovers.Console.Exceptions;
-using MarsRovers.Core;
+using MarsRovers.Core.Domain;
 
 namespace MarsRovers.Console
 {
@@ -79,7 +79,7 @@ namespace MarsRovers.Console
 
         private static void ExecuteCommands()
         {
-            var manager = new RoversManager();
+            var manager = new Mothership();
             InstantiateOutput();
             output.AppendLine(manager.Execute(commands.ToString()));
         }

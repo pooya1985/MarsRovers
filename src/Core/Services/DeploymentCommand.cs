@@ -1,17 +1,19 @@
 using System;
+using MarsRovers.Core.Domain.Model;
 
 namespace MarsRovers.Core.Services
 {
-    public class DeploymentCommand
+    public class DeploymentCommand 
     {
         private Position _position;
-        private Heading _heading;
+
         public Position Position { get { return _position; } }
-        public Heading Heading { get { return _heading; } }
+
 
         public DeploymentCommand(Position position)
         {
             _position = position;
         }
+
     }
 }

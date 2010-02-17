@@ -7,14 +7,14 @@ namespace MarsRovers.Core.Services
     public class RoverCommand
     {
         private DeploymentCommand _depCommand;
-        private IList<NavigationCommand> _navNavigationCommands;
+        private NavigationCommand[] _navNavigationCommands;
 
         public  DeploymentCommand DeploymentCommand
         {
             get{ return _depCommand;}
         }
 
-        public IList<NavigationCommand> NavigationCommands
+        public NavigationCommand[] NavigationCommands
         {
             get { return _navNavigationCommands; }
         }
@@ -22,7 +22,7 @@ namespace MarsRovers.Core.Services
         public RoverCommand(DeploymentCommand deploymentCommand, IEnumerable<NavigationCommand> commands)
         {
             _depCommand = deploymentCommand;
-            _navNavigationCommands = commands.ToList();
+            _navNavigationCommands = commands.ToArray();
         }
     }
 }

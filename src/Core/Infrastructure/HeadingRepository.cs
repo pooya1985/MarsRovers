@@ -2,34 +2,27 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using MarsRovers.Core.Domain.Model;
+using MarsRovers.Core.Implementation;
 
 namespace MarsRovers.Core
 {
-    public class HeadingRepository : IEnumerable<Heading>
+    public static class HeadingRepository
     {
-        private IList<Heading> _headings;
+        private static IHeading[] _headings = { 
+                                         new North(),
+                                         new East(),
+                                         new South(),
+                                         new West()};
 
-        public HeadingRepository(params Heading[] headings)
-        {
-            _headings = new List<Heading>(headings);
-        }
-
-        public Heading GetHeading(char heading)
+        public static IHeading GetHeading(char heading)
         {
             return _headings.First(h => h.Code.Equals(heading));
         }
-        public void Add(Heading heading)
+        
+        public static IHeading[] GetAll()
         {
-            _headings.Add(heading);
-        }
-        public IEnumerator<Heading> GetEnumerator()
-        {
-            return _headings.GetEnumerator();    
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
+            return _headings;
         }
     }
 }

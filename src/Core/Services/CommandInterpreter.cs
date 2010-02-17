@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using MarsRovers.Core.Domain.Model;
 using MarsRovers.Core.Extensions;
+using MarsRovers.Core.Implementation;
 
 namespace MarsRovers.Core.Services
 {
@@ -9,28 +11,21 @@ namespace MarsRovers.Core.Services
 
         private const char LINE_BREAK = '\n';
         private const char SEPARATOR = ' ';
-        private HeadingRepository _headingRepository;
-        private NavigationCommandRepository _navigateRepository;
-
+        
         public static string _commands;
 
-        public CommandInterpreter(string commands, HeadingRepository hRepository, NavigationCommandRepository nRepository )
+        public CommandInterpreter(string commands)
         {
             _commands = commands.FixLineBreak();
-            _headingRepository = hRepository;
-            _navigateRepository = nRepository;
-
         }
 
-        public static Spot GetPlateauMaxSpot(string commands)
+        public Coordinate[] GetMaxCoordinates(string commands)
         {
             var cmd = commands.Split(LINE_BREAK)[0];
-            var coordinates = GetCordinatesFrom(cmd);
-            return new PlateauSpot(coordinates[0], coordinates[1]);
-            
+            return GetCordinatesFrom(cmd);
         }
 
-        public IList<RoverCommand> GetRoverCommands()
+        public RoverCommand[] GetRoverCommands()
         {
             var cmds = _commands.Split(LINE_BREAK);
             var roverCommands = new List<RoverCommand>();
@@ -43,14 +38,14 @@ namespace MarsRovers.Core.Services
                 var navigateCommands = GetNavigateCommands(cmds[i + 1]);
                 roverCommands.Add(new RoverCommand(deploymentCommand, navigateCommands));
             }
-            return roverCommands;
+            return roverCommands.ToArray();
         }
 
         private IEnumerable<NavigationCommand> GetNavigateCommands(string command)
         {
             foreach (var cmd in command)
             {
-                yield return _navigateRepository.GetCommand(cmd);
+                yield return NavigationCommandRepository.GetCommand(cmd);
             }
         }
 
@@ -66,8 +61,9 @@ namespace MarsRovers.Core.Services
         {
             var coordinates = GetCordinatesFrom(cmd);
             var headingCode = Char.Parse(cmd.Split(SEPARATOR)[2]);
-            var heading = _headingRepository.GetHeading(headingCode);
-            var deploymentPosition = new Position(new PlateauSpot(coordinates[0],coordinates[1]),heading);
+            var heading = HeadingRepository.GetHeading(headingCode);
+            var initialSpot = new PlateauSpot(coordinates[0], coordinates[1]);
+            var deploymentPosition = new Position(initialSpot,heading);
             return new DeploymentCommand(deploymentPosition);
         }
     }

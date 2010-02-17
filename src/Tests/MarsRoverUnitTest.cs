@@ -1,5 +1,6 @@
 using System;
 using MarsRovers.Core;
+using MarsRovers.Core.Domain;
 using NUnit.Framework;
 
 namespace MarsRovers.Tests
@@ -7,13 +8,14 @@ namespace MarsRovers.Tests
     [TestFixture]
     public class MarsRoverUnitTest
     {
-        private RoversManager manager;
+        private Mothership manager;
         private string command = "5 5\n1 2 N\nLMLMLMLMM\n3 3 E\nMMRMMRMRRM";
+        //private string command = "5 5\n";
 
         [SetUp]
         public void TestSetUp()
         {
-            manager = new RoversManager();
+            manager = new Mothership();
         }
 
         [Test]
@@ -44,7 +46,7 @@ namespace MarsRovers.Tests
         public void Should_Thrown_SpotOutsidePlateauException_If_rover_tries_to_move_outside_of_plateau()
         {
             var cmd = "5 5\n0 0 S\nM";
-            Assert.That(Throws<SpotOutsidePlateauException>(() => manager.Execute(cmd)));
+            Assert.That(Throws<InvalidCommandException>(() => manager.Execute(cmd)));
                         
         }
 

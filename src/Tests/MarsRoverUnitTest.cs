@@ -39,6 +39,7 @@ namespace MarsRovers.Tests
         {
             var result = manager.Execute(command);
             var expected = "1 3 N\n5 1 E\n";
+
             Assert.AreEqual(expected, result);
         }
 
